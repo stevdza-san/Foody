@@ -46,7 +46,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/courgette"
                 android:maxLines="2"
-                android:text="TextView"
+                android:text="Lorem Ipsum"
                 android:textColor="@color/darker"
                 android:textSize="20sp"
                 android:textStyle="bold"
