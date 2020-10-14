@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGray"
-    tools:context=".RecipesFragment">
+    tools:context=".ui.fragments.recipes.RecipesFragment">
 
     <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/recyclerview"
