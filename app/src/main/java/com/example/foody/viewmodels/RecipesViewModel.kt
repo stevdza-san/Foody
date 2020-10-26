@@ -2,7 +2,7 @@ package com.example.foody.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.example.foody.util.Constants.Companion.API_KEY2
+import com.example.foody.util.Constants.Companion.API_KEY
 import com.example.foody.util.Constants.Companion.QUERY_ADD_RECIPE_INFORMATION
 import com.example.foody.util.Constants.Companion.QUERY_API_KEY
 import com.example.foody.util.Constants.Companion.QUERY_DIET
@@ -16,7 +16,7 @@ class RecipesViewModel(application: Application) : AndroidViewModel(application)
         val queries: HashMap<String, String> = HashMap()
 
         queries[QUERY_NUMBER] = "50"
-        queries[QUERY_API_KEY] = API_KEY2
+        queries[QUERY_API_KEY] = API_KEY
         queries[QUERY_TYPE] = "snack"
         queries[QUERY_DIET] = "vegan"
         queries[QUERY_ADD_RECIPE_INFORMATION] = "true"
