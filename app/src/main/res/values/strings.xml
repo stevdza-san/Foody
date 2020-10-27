@@ -5,4 +5,31 @@
     <string name="recipes_fragment">Recipes</string>
     <string name="favorite_recipes_fragment">Favorites</string>
     <string name="food_joke_fragment">Food Joke</string>
+
+    // Bottom Sheet
+    <string name="meal_type">Meal Type</string>
+    <string name="main_course">Main Course</string>
+    <string name="side_dish">Side Dish</string>
+    <string name="dessert">Dessert</string>
+    <string name="appetizer">Appetizer</string>
+    <string name="salad">Salad</string>
+    <string name="bread">Bread</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="soup">Soup</string>
+    <string name="beverage">Beverage</string>
+    <string name="sauce">Sauce</string>
+    <string name="marinade">Marinade</string>
+    <string name="fingerfood">FingerFood</string>
+    <string name="snack">Snack</string>
+    <string name="drink">Drink</string>
+    <string name="gluten_free">Gluten Free</string>
+    <string name="ketogenic">Ketogenic</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="vegan">Vegan</string>
+    <string name="pescetarian">Pescetarian</string>
+    <string name="paleo">Paleo</string>
+    <string name="primal">Primal</string>
+    <string name="whole30">Whole30</string>
+    <string name="diet_type">Diet Type</string>
+    <string name="apply">Apply</string>
 </resources>
