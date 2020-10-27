@@ -167,7 +167,7 @@
                 android:id="@+id/dietType_chipGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:checkedChip="@+id/main_course_chip"
+                app:checkedChip="@+id/gluten_free_chip"
                 app:selectionRequired="true"
                 app:singleLine="true"
                 app:singleSelection="true">
