@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="favoritesEntity"
             type="com.example.foody.data.database.entities.FavoritesEntity" />
@@ -35,6 +36,7 @@
 
                 <ImageView
                     android:id="@+id/favorite_recipe_imageView"
+                    loadImageFromUrl="@{favoritesEntity.result.image}"
                     android:layout_width="200dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -53,6 +55,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/courgette"
                     android:maxLines="2"
+                    android:text="@{favoritesEntity.result.title}"
                     android:textColor="@color/darker"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -68,6 +71,7 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
+                    android:text="@{favoritesEntity.result.summary}"
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_title_textView"
                     app:layout_constraintStart_toStartOf="@+id/favorite_title_textView"
@@ -88,6 +92,7 @@
 
                 <TextView
                     android:id="@+id/favorite_heart_textView"
+                    setNumberOfLikes="@{favoritesEntity.result.aggregateLikes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100"
@@ -108,6 +113,7 @@
 
                 <TextView
                     android:id="@+id/favorite_clock_textView"
+                    setNumberOfMinutes="@{favoritesEntity.result.readyInMinutes}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -119,6 +125,7 @@
 
                 <ImageView
                     android:id="@+id/favorite_leaf_imageView"
+                    applyVeganColor="@{favoritesEntity.result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_leaf_textView"
@@ -128,6 +135,7 @@
 
                 <TextView
                     android:id="@+id/favorite_leaf_textView"
+                    applyVeganColor="@{favoritesEntity.result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
