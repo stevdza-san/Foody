@@ -25,6 +25,7 @@
     <color name="actionBarBackgroundColor">@color/colorPrimary</color>
     <color name="strokeColor">@color/lightMediumGray</color>
     <color name="cardBackgroundColor">@color/white</color>
+    <color name="cardBackgroundLightColor">#106200EA</color>
     <color name="titleColor">@color/darker</color>
 
     <color name="statusBarColor">@color/colorPrimaryDark</color>
