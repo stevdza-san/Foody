@@ -27,4 +27,8 @@
     <color name="cardBackgroundColor">@color/white</color>
     <color name="titleColor">@color/darker</color>
 
+    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="contextualStatusBarColor">@color/darker</color>
+    <color name="contextualActionBarColor">@color/dark</color>
+
 </resources>

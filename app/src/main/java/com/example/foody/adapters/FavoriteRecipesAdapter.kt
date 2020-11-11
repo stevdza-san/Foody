@@ -1,6 +1,7 @@
 package com.example.foody.adapters
 
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
@@ -69,16 +70,9 @@ class FavoriteRecipesAdapter(
         return favoriteRecipes.size
     }
 
-    fun setData(newFavoriteRecipes: List<FavoritesEntity>) {
-        val favoriteRecipesDiffUtil =
-            RecipesDiffUtil(favoriteRecipes, newFavoriteRecipes)
-        val diffUtilResult = DiffUtil.calculateDiff(favoriteRecipesDiffUtil)
-        favoriteRecipes = newFavoriteRecipes
-        diffUtilResult.dispatchUpdatesTo(this)
-    }
-
     override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
         actionMode?.menuInflater?.inflate(R.menu.favorites_contextual_menu, menu)
+        applyStatusBarColor(R.color.contextualStatusBarColor)
         return true
     }
 
@@ -91,6 +85,20 @@ class FavoriteRecipesAdapter(
     }
 
     override fun onDestroyActionMode(actionMode: ActionMode?) {
-
+        applyStatusBarColor(R.color.statusBarColor)
     }
+
+    private fun applyStatusBarColor(color: Int){
+        requireActivity.window.statusBarColor =
+            ContextCompat.getColor(requireActivity, color)
+    }
+
+    fun setData(newFavoriteRecipes: List<FavoritesEntity>) {
+        val favoriteRecipesDiffUtil =
+            RecipesDiffUtil(favoriteRecipes, newFavoriteRecipes)
+        val diffUtilResult = DiffUtil.calculateDiff(favoriteRecipesDiffUtil)
+        favoriteRecipes = newFavoriteRecipes
+        diffUtilResult.dispatchUpdatesTo(this)
+    }
+
 }
