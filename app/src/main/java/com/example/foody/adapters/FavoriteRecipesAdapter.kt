@@ -111,8 +111,8 @@ class FavoriteRecipesAdapter(
             ContextCompat.getColor(requireActivity, strokeColor)
     }
 
-    private fun applyActionModeTitle(){
-        when(selectedRecipes.size) {
+    private fun applyActionModeTitle() {
+        when (selectedRecipes.size) {
             0 -> {
                 mActionMode.finish()
             }
@@ -141,7 +141,7 @@ class FavoriteRecipesAdapter(
     }
 
     override fun onActionItemClicked(actionMode: ActionMode?, menu: MenuItem?): Boolean {
-        if(menu?.itemId == R.id.delete_favorite_recipe_menu){
+        if (menu?.itemId == R.id.delete_favorite_recipe_menu) {
             selectedRecipes.forEach {
                 mainViewModel.deleteFavoriteRecipe(it)
             }
@@ -176,13 +176,19 @@ class FavoriteRecipesAdapter(
         diffUtilResult.dispatchUpdatesTo(this)
     }
 
-    private fun showSnackBar(message: String){
+    private fun showSnackBar(message: String) {
         Snackbar.make(
             rootView,
             message,
             Snackbar.LENGTH_SHORT
-        ).setAction("Okay"){}
+        ).setAction("Okay") {}
             .show()
+    }
+
+    fun clearContextualActionMode() {
+        if (this::mActionMode.isInitialized) {
+            mActionMode.finish()
+        }
     }
 
 }
