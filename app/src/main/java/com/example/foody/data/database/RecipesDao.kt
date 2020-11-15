@@ -26,7 +26,7 @@ interface RecipesDao {
     fun readFavoriteRecipes(): Flow<List<FavoritesEntity>>
 
     @Query("SELECT * FROM food_joke_table ORDER BY id ASC")
-    fun readFoodJoke(): Flow<List<FoodJoke>>
+    fun readFoodJoke(): Flow<List<FoodJokeEntity>>
 
     @Delete
     suspend fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity)
