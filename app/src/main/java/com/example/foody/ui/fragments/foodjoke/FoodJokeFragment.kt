@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.foody.R
 import com.example.foody.databinding.FragmentFoodJokeBinding
 import com.example.foody.util.Constants.Companion.API_KEY
-import com.example.foody.util.Constants.Companion.API_KEYX
 import com.example.foody.util.NetworkResult
 import com.example.foody.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +36,7 @@ class FoodJokeFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        mainViewModel.getFoodJoke(API_KEYX)
+        mainViewModel.getFoodJoke(API_KEY)
         mainViewModel.foodJokeResponse.observe(viewLifecycleOwner, { response ->
             when(response){
                 is NetworkResult.Success -> {
