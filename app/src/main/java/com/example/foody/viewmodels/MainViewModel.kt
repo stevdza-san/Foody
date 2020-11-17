@@ -40,7 +40,7 @@ class MainViewModel @ViewModelInject constructor(
             repository.local.insertFavoriteRecipes(favoritesEntity)
         }
 
-    fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) =
+    private fun insertFoodJoke(foodJokeEntity: FoodJokeEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertFoodJoke(foodJokeEntity)
         }
