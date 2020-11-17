@@ -8,7 +8,7 @@
         <item name="actionModeBackground">@color/contextualActionBarColor</item>
     </style>
 
-    <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">Splash
+    <style name="SplashScreenStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>
 
     <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
