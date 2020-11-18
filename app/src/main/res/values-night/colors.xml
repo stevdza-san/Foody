@@ -34,8 +34,8 @@
     <color name="descriptionColor">@color/mediumGray</color>
 
     <color name="statusBarColor">@color/black</color>
-    <color name="contextualStatusBarColor">@color/darker</color>
-    <color name="contextualActionBarColor">@color/dark</color>
+    <color name="contextualStatusBarColor">@color/black</color>
+    <color name="contextualActionBarColor">@color/darker</color>
     <color name="actionBarBackgroundColor">@color/darker</color>
 
     // Custom BottomNavigationView Style
