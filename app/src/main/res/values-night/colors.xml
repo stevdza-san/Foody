@@ -16,9 +16,9 @@
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
 
-    <!-- LIGHT THEME -->
+    <!-- DARK THEME -->
 
-    <color name="backgroundColor">@color/lightGray</color>
+    <color name="backgroundColor">@color/dark</color>
 
     // Custom Chip Style
     <color name="checkedChipBackgroundColor">#206200EA</color>
@@ -27,20 +27,20 @@
     <color name="chipTextColor">@color/darkGray</color>
 
     // Custom CardView Style
-    <color name="strokeColor">@color/lightMediumGray</color>
-    <color name="cardBackgroundColor">@color/white</color>
+    <color name="strokeColor">@color/mediumGray</color>
+    <color name="cardBackgroundColor">@color/darker</color>
     <color name="cardBackgroundLightColor">#106200EA</color>
-    <color name="titleColor">@color/darker</color>
-    <color name="descriptionColor">@color/darkGray</color>
+    <color name="titleColor">@color/mediumGray</color>
+    <color name="descriptionColor">@color/mediumGray</color>
 
-    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="statusBarColor">@color/black</color>
     <color name="contextualStatusBarColor">@color/darker</color>
     <color name="contextualActionBarColor">@color/dark</color>
-    <color name="actionBarBackgroundColor">@color/colorPrimary</color>
+    <color name="actionBarBackgroundColor">@color/darker</color>
 
     // Custom BottomNavigationView Style
-    <color name="bottomNavBackground">@color/white</color>
-    <color name="bottomNavItemColor">@color/darkGray</color>
-    <color name="bottomNavCheckedItemColor">@color/colorPrimary</color>
+    <color name="bottomNavBackground">@color/darker</color>
+    <color name="bottomNavItemColor">@color/mediumGray</color>
+    <color name="bottomNavCheckedItemColor">@color/colorAccent</color>
 
 </resources>
