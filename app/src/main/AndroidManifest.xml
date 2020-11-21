@@ -15,10 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/SplashScreenStyle"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.DetailsActivity"
+        <activity
+            android:name=".ui.DetailsActivity"
             android:label="Details"
-            android:theme="@style/DetailsActivityStyle"/>
-        <activity android:name=".ui.MainActivity">
+            android:screenOrientation="portrait"
+            android:theme="@style/DetailsActivityStyle" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
