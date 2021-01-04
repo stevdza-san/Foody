@@ -42,7 +42,9 @@
         tools:layout="@layout/recipes_bottom_sheet" >
         <action
             android:id="@+id/action_recipesBottomSheet_to_recipesFragment"
-            app:destination="@id/recipesFragment" />
+            app:destination="@id/recipesFragment"
+            app:popUpTo="@id/recipesFragment"
+            app:popUpToInclusive="true" />
     </dialog>
     <activity
         android:id="@+id/detailsActivity"
