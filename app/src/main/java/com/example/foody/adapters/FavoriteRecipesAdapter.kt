@@ -52,7 +52,6 @@ class FavoriteRecipesAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         myViewHolders.add(holder)
-        rootView = holder.itemView.rootView
 
         val currentRecipe = favoriteRecipes[position]
         holder.bind(currentRecipe)
@@ -106,6 +105,7 @@ class FavoriteRecipesAdapter(
             changeRecipeStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor)
             applyActionModeTitle()
         } else {
+            rootView = holder.itemView.rootView
             selectedRecipes.add(currentRecipe)
             changeRecipeStyle(holder, R.color.cardBackgroundLightColor, R.color.colorPrimary)
             applyActionModeTitle()
