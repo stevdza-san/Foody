@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/activity_main.xml" value="0.16145307769929365" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_recipes.xml" value="0.16145307769929365" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/ingredients_row_layout.xml" value="0.16145307769929365" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.18115942028985507" />
       </map>
     </option>

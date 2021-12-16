@@ -38,10 +38,10 @@ class FoodJokeFragment : Fragment() {
 
         mainViewModel.getFoodJoke(API_KEY)
         mainViewModel.foodJokeResponse.observe(viewLifecycleOwner, { response ->
-            when(response){
+            when (response) {
                 is NetworkResult.Success -> {
                     binding.foodJokeTextView.text = response.data?.text
-                    if(response.data != null){
+                    if (response.data != null) {
                         foodJoke = response.data.text
                     }
                 }
@@ -67,7 +67,7 @@ class FoodJokeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.share_food_joke_menu){
+        if (item.itemId == R.id.share_food_joke_menu) {
             val shareIntent = Intent().apply {
                 this.action = Intent.ACTION_SEND
                 this.putExtra(Intent.EXTRA_TEXT, foodJoke)
@@ -78,10 +78,10 @@ class FoodJokeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadDataFromCache(){
+    private fun loadDataFromCache() {
         lifecycleScope.launch {
-            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, {database->
-                if(!database.isNullOrEmpty()){
+            mainViewModel.readFoodJoke.observe(viewLifecycleOwner, { database ->
+                if (!database.isNullOrEmpty()) {
                     binding.foodJokeTextView.text = database.first().foodJoke.text
                     foodJoke = database.first().foodJoke.text
                 }

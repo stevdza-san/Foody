@@ -39,6 +39,13 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var networkListener: NetworkListener
 
+    override fun onResume() {
+        super.onResume()
+        if(mainViewModel.recyclerViewState != null){
+            binding.recyclerview.layoutManager?.onRestoreInstanceState(mainViewModel.recyclerViewState)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
@@ -100,7 +107,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        if(query != null) {
+        if (query != null) {
             searchApiData(query)
         }
         return true
@@ -200,6 +207,8 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        mainViewModel.recyclerViewState =
+            binding.recyclerview.layoutManager?.onSaveInstanceState()
         _binding = null
     }
 }
