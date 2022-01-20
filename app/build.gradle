@@ -102,7 +102,7 @@ dependencies {
     implementation "io.coil-kt:coil:0.13.0"
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     // Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
