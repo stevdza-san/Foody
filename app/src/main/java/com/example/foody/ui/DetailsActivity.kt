@@ -34,8 +34,6 @@ class DetailsActivity : AppCompatActivity() {
     private var recipeSaved = false
     private var savedRecipeId = 0
 
-    private lateinit var menuItem: MenuItem
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
@@ -75,7 +73,7 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu, menu)
-        menuItem = menu!!.findItem(R.id.save_to_favorites_menu)
+        val menuItem = menu!!.findItem(R.id.save_to_favorites_menu)
         checkSavedRecipes(menuItem)
         return true
     }
@@ -99,6 +97,9 @@ class DetailsActivity : AppCompatActivity() {
                         changeMenuItemColor(menuItem, R.color.yellow)
                         savedRecipeId = savedRecipe.id
                         recipeSaved = true
+                        break
+                    }else{
+                        changeMenuItemColor(menuItem, R.color.white)
                     }
                 }
             } catch (e: Exception) {
@@ -144,8 +145,9 @@ class DetailsActivity : AppCompatActivity() {
         item.icon.setTint(ContextCompat.getColor(this, color))
     }
 
-    override fun onDestroy() {
+    //don't need to do this just added break keyword in foreach loop
+   /* override fun onDestroy() {
         super.onDestroy()
         changeMenuItemColor(menuItem, R.color.white)
-    }
+    }*/
 }

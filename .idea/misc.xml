@@ -3,14 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/activity_main.xml" value="0.16145307769929365" />
-        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/fragment_recipes.xml" value="0.16145307769929365" />
-        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/ingredients_row_layout.xml" value="0.16145307769929365" />
-        <entry key="..\:/Users/Stefan/AndroidStudioProjects/Foody/app/src/main/res/layout/recipes_bottom_sheet.xml" value="0.18115942028985507" />
+        <entry key="..\:/Kotlin 2022/test/app/src/main/res/layout/activity_details.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
