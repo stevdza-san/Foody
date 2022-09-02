@@ -92,7 +92,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun checkSavedRecipes(menuItem: MenuItem) {
-        mainViewModel.readFavoriteRecipes.observe(this, { favoritesEntity ->
+        mainViewModel.readFavoriteRecipes.observe(this) { favoritesEntity ->
             try {
                 for (savedRecipe in favoritesEntity) {
                     if (savedRecipe.result.recipeId == args.result.recipeId) {
@@ -104,7 +104,7 @@ class DetailsActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 Log.d("DetailsActivity", e.message.toString())
             }
-        })
+        }
     }
 
     private fun saveToFavorites(item: MenuItem) {
@@ -141,7 +141,7 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun changeMenuItemColor(item: MenuItem, color: Int) {
-        item.icon.setTint(ContextCompat.getColor(this, color))
+        item.icon?.setTint(ContextCompat.getColor(this, color))
     }
 
     override fun onDestroy() {
