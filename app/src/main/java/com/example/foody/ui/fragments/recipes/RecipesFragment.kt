@@ -43,7 +43,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onResume() {
         super.onResume()
-        if(mainViewModel.recyclerViewState != null){
+        if (mainViewModel.recyclerViewState != null) {
             binding.recyclerview.layoutManager?.onRestoreInstanceState(mainViewModel.recyclerViewState)
         }
     }
@@ -191,11 +191,9 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun loadDataFromCache() {
-        lifecycleScope.launch {
-            mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
-                if (database.isNotEmpty()) {
-                    mAdapter.setData(database.first().foodRecipe)
-                }
+        mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+            if (database.isNotEmpty()) {
+                mAdapter.setData(database.first().foodRecipe)
             }
         }
     }
