@@ -4,5 +4,4 @@ import retrofit2.http.GET
 
 interface CampusOfferAPI {
 
-    @GET
 }

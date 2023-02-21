@@ -20,4 +20,9 @@
         android:name="com.example.campus.ui.fragment.user.UserFragment"
         android:label="User"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/toSellFragment"
+        android:name="com.example.campus.ui.fragment.sell.ToSellFragment"
+        android:label="fragment_to_sell"
+        tools:layout="@layout/fragment_to_sell" />
 </navigation>

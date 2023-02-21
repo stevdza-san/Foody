@@ -1,4 +1,4 @@
-package com.example.campus
+package com.example.campus.util
 
 class Constants {
     companion object {

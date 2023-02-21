@@ -9,6 +9,10 @@
         android:title="@string/favorite_fragment"
         android:icon="@drawable/ic_star"/>
 
+    <item android:id="@+id/toSellFragment"
+        android:title="Sell"
+        android:icon="@drawable/ic_store"/>
+
     <item android:id="@+id/userFragment"
         android:title="@string/user_fragment"
         android:icon="@drawable/ic_person"/>
