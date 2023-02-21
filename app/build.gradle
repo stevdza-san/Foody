@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.example.foody"
+        applicationId 'com.example.foody'
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -106,7 +106,9 @@ dependencies {
 
     // Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
-    implementation 'com.todkars:shimmer-recyclerview:0.4.0'
+    implementation 'com.todkars:shimmer-recyclerview:0.4.1'
+//    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+//    implementation 'com.todkars:shimmer-recyclerview:0.4.0'
 
     // Jsoup
     implementation 'org.jsoup:jsoup:1.13.1'
