@@ -8,8 +8,6 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.campus.data.Repository
 import com.example.campus.data.database.ProductsEntity
-import com.example.campus.data.database.ProductsTypeConverter
-import com.example.campus.models.Product
 import com.example.campus.models.ProductsList
 import com.example.campus.util.NetworkResult
 import kotlinx.coroutines.Dispatchers
@@ -34,15 +32,15 @@ class MainViewModel@ViewModelInject constructor(
     /** Retrofit */
     var productsResponse: MutableLiveData<NetworkResult<ProductsList>> = MutableLiveData()
 
-    fun getProducts(queries: Map<String, String>) = viewModelScope.launch {
-        getProductsSafeCall(queries)
+    fun getProductsUnderCategory(queries: Map<String, String>) = viewModelScope.launch {
+        getProductsUnderCategorySafeCall(queries)
     }
 
-    private suspend fun getProductsSafeCall(queries: Map<String, String>) {
+    private suspend fun getProductsUnderCategorySafeCall(queries: Map<String, String>) {
         productsResponse.value = NetworkResult.Loading()
         if (hasInternetConnection()) {
             try {
-                val response = repository.remote.getProducts(queries)
+                val response = repository.remote.getProductsUnderCategory(queries)
                 productsResponse.value = handleProductsRespond(response)
 
                 // Store product data in local caching

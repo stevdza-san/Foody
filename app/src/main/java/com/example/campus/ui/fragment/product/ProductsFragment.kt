@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.campus.viewmodels.MainViewModel
 import com.example.campus.R
 import com.example.campus.adapters.ProductAdapter
-import com.example.campus.models.Product
+import com.example.campus.util.Constants.Companion.CATEGORY_ROOT_ID
 import com.example.campus.util.NetworkResult
 import com.example.campus.util.observeOnce
 import com.example.campus.viewmodels.ProductViewModel
@@ -68,7 +68,8 @@ class ProductsFragment : Fragment() {
 
     private fun requestApiData(){
         Log.d("ProductsFragment", "requestApiData called!")
-        mainViewModel.getProducts(productViewModel.applyQueries())
+        //TODO: hardcoded root category_id
+        mainViewModel.getProductsUnderCategory(productViewModel.applyQueryProductUnderCategory(CATEGORY_ROOT_ID));
         mainViewModel.productsResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Success -> {
