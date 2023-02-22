@@ -8,7 +8,7 @@ import retrofit2.http.QueryMap
 
 interface ProductsApi {
 
-    @GET("/recipes/complexSearch")
+    @GET("/category_id")
     suspend fun getProducts(
         @QueryMap queries: Map<String, String>
     ): Response<ProductsList>

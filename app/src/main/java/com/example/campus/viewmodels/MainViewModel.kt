@@ -1,17 +1,18 @@
-package com.example.campus
+package com.example.campus.viewmodels
 
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.campus.data.Repository
+import com.example.campus.data.database.ProductsEntity
+import com.example.campus.data.database.ProductsTypeConverter
 import com.example.campus.models.Product
 import com.example.campus.models.ProductsList
 import com.example.campus.util.NetworkResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -21,7 +22,17 @@ class MainViewModel@ViewModelInject constructor(
 
 ):AndroidViewModel(application) {
 
-    private var productsResponse: MutableLiveData<NetworkResult<ProductsList>> = MutableLiveData()
+    /** Room Database */
+    val readProducts : LiveData<List<ProductsEntity>> = repository.local.readDatabase().asLiveData()
+
+    private fun insertProducts (productsEntity: ProductsEntity) =
+        viewModelScope.launch(Dispatchers.IO){
+            repository.local.insertProducts(productsEntity)
+    }
+
+
+    /** Retrofit */
+    var productsResponse: MutableLiveData<NetworkResult<ProductsList>> = MutableLiveData()
 
     fun getProducts(queries: Map<String, String>) = viewModelScope.launch {
         getProductsSafeCall(queries)
@@ -33,12 +44,23 @@ class MainViewModel@ViewModelInject constructor(
             try {
                 val response = repository.remote.getProducts(queries)
                 productsResponse.value = handleProductsRespond(response)
+
+                // Store product data in local caching
+                val product = productsResponse.value!!.data
+                if (product != null) {
+                    offlineCacheProducts(product)
+                }
             } catch (e: Exception) {
                 productsResponse.value = NetworkResult.Error("Products not found.")
             }
         } else {
             productsResponse.value = NetworkResult.Error("No Internet Connection.")
         }
+    }
+
+    private fun offlineCacheProducts(productsList: ProductsList) {
+        val productsEntity = ProductsEntity(productsList)
+        insertProducts(productsEntity)
     }
 
     private fun handleProductsRespond(response: Response<ProductsList>): NetworkResult<ProductsList>? {
