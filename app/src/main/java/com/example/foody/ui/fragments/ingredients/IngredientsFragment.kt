@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foody.R
 import com.example.foody.adapters.IngredientsAdapter
 import com.example.foody.databinding.FragmentIngredientsBinding
 import com.example.foody.models.Result
 import com.example.foody.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.foody.util.retrieveParcelable
 
 class IngredientsFragment : Fragment() {
 
@@ -27,7 +27,7 @@ class IngredientsFragment : Fragment() {
         _binding = FragmentIngredientsBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
+        val myBundle: Result? = args?.retrieveParcelable(RECIPE_RESULT_KEY)
 
         setupRecyclerView()
         myBundle?.extendedIngredients?.let { mAdapter.setData(it) }

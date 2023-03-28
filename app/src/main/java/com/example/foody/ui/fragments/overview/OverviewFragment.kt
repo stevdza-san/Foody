@@ -14,6 +14,7 @@ import com.example.foody.bindingadapters.RecipesRowBinding
 import com.example.foody.databinding.FragmentOverviewBinding
 import com.example.foody.models.Result
 import com.example.foody.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.foody.util.retrieveParcelable
 
 class OverviewFragment : Fragment() {
 
@@ -28,20 +29,22 @@ class OverviewFragment : Fragment() {
         _binding = FragmentOverviewBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val myBundle: Result = args!!.getParcelable<Result>(RECIPE_RESULT_KEY) as Result
+        val myBundle: Result? = args!!.retrieveParcelable(RECIPE_RESULT_KEY) as Result?
 
-        binding.mainImageView.load(myBundle.image)
-        binding.titleTextView.text = myBundle.title
-        binding.likesTextView.text = myBundle.aggregateLikes.toString()
-        binding.timeTextView.text = myBundle.readyInMinutes.toString()
-        RecipesRowBinding.parseHtml(binding.summaryTextView, myBundle.summary)
+        if (myBundle != null) {
+            binding.mainImageView.load(myBundle.image)
+            binding.titleTextView.text = myBundle.title
+            binding.likesTextView.text = myBundle.aggregateLikes.toString()
+            binding.timeTextView.text = myBundle.readyInMinutes.toString()
+            RecipesRowBinding.parseHtml(binding.summaryTextView, myBundle.summary)
 
-        updateColors(myBundle.vegetarian, binding.vegetarianTextView, binding.vegetarianImageView)
-        updateColors(myBundle.vegan, binding.veganTextView, binding.veganImageView)
-        updateColors(myBundle.cheap, binding.cheapTextView, binding.cheapImageView)
-        updateColors(myBundle.dairyFree, binding.dairyFreeTextView, binding.dairyFreeImageView)
-        updateColors(myBundle.glutenFree, binding.glutenFreeTextView, binding.glutenFreeImageView)
-        updateColors(myBundle.veryHealthy, binding.healthyTextView, binding.healthyImageView)
+            updateColors(myBundle.vegetarian, binding.vegetarianTextView, binding.vegetarianImageView)
+            updateColors(myBundle.vegan, binding.veganTextView, binding.veganImageView)
+            updateColors(myBundle.cheap, binding.cheapTextView, binding.cheapImageView)
+            updateColors(myBundle.dairyFree, binding.dairyFreeTextView, binding.dairyFreeImageView)
+            updateColors(myBundle.glutenFree, binding.glutenFreeTextView, binding.glutenFreeImageView)
+            updateColors(myBundle.veryHealthy, binding.healthyTextView, binding.healthyImageView)
+        }
 
         return binding.root
     }

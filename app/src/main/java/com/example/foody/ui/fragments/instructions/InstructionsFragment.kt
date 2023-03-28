@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.webkit.WebViewClient
 import com.example.foody.databinding.FragmentInstructionsBinding
 import com.example.foody.models.Result
-import com.example.foody.util.Constants
+import com.example.foody.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.foody.util.retrieveParcelable
 
 class InstructionsFragment : Fragment() {
 
@@ -23,11 +24,13 @@ class InstructionsFragment : Fragment() {
         _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable(Constants.RECIPE_RESULT_KEY)
+        val myBundle: Result? = args?.retrieveParcelable(RECIPE_RESULT_KEY)
 
-        binding.instructionsWebView.webViewClient = object : WebViewClient() {}
-        val websiteUrl: String = myBundle!!.sourceUrl
-        binding.instructionsWebView.loadUrl(websiteUrl)
+        if (myBundle != null) {
+            binding.instructionsWebView.webViewClient = object : WebViewClient() {}
+            val websiteUrl: String = myBundle.sourceUrl
+            binding.instructionsWebView.loadUrl(websiteUrl)
+        }
 
         return binding.root
     }
