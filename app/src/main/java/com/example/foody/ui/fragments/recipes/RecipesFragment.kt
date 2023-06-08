@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
 
+    private var dataRequested = false
     private val args by navArgs<RecipesFragmentArgs>()
 
     private var _binding: FragmentRecipesBinding? = null
@@ -130,12 +131,18 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun readDatabase() {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce(viewLifecycleOwner) { database ->
-                if (database.isNotEmpty() && !args.backFromBottomSheet) {
+                if (database.isNotEmpty() && !args.backFromBottomSheet
+                    || database.isNotEmpty() && dataRequested
+                ) {
                     Log.d("RecipesFragment", "readDatabase called!")
                     mAdapter.setData(database.first().foodRecipe)
                     hideShimmerEffect()
                 } else {
-                    requestApiData()
+                    Log.d("RecipesFragment", "requestApiData called!")
+                    if (!dataRequested) {
+                        requestApiData()
+                        dataRequested = true
+                    }
                 }
             }
         }
@@ -151,6 +158,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                     response.data?.let { mAdapter.setData(it) }
                     recipesViewModel.saveMealAndDietType()
                 }
+
                 is NetworkResult.Error -> {
                     hideShimmerEffect()
                     loadDataFromCache()
@@ -160,6 +168,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 is NetworkResult.Loading -> {
                     showShimmerEffect()
                 }
@@ -177,6 +186,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                     val foodRecipe = response.data
                     foodRecipe?.let { mAdapter.setData(it) }
                 }
+
                 is NetworkResult.Error -> {
                     hideShimmerEffect()
                     loadDataFromCache()
@@ -186,6 +196,7 @@ class RecipesFragment : Fragment(), SearchView.OnQueryTextListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 is NetworkResult.Loading -> {
                     showShimmerEffect()
                 }
